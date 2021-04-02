@@ -1,0 +1,25 @@
+.main{
+    margin-top: 110px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.bg-table{
+    background-color: rgb(220, 220, 221);
+}
+.alert-submit{
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.alert-delete{
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+}
