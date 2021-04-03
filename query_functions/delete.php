@@ -4,7 +4,7 @@ require_once('../connection/connections.php');
 $con = connection();
 
     if(isset($_POST['delete'])){
-    $id = $_POST['id'];
+    $id = $_POST['id-delete'];
     $sql = "DELETE FROM data WHERE id='$id'";
     $con->query($sql) or die ($con->error);
 

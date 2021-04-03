@@ -23,3 +23,17 @@
     top: 0;
 
 }
+.alert-update{
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+}
+.alert-message{
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+}

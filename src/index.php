@@ -11,8 +11,10 @@
 </head>
 <body>
     <?php require_once('../connection/connections.php');?>
+    <div class="alert alert-warning text-center alert-message ">Please complete the form. Thank you</div>
     <div class="alert alert-success text-center alert-submit ">Submitted</div>
     <div class="alert alert-danger text-center alert-delete">Deleted</div>
+    <div class="alert alert-warning text-center alert-update">Updated</div>
     <div class="container">
     <main class="container justify-content-center  main">
     <div>
@@ -20,7 +22,7 @@
     <thead class="bg-dark text-light " >
     <tr>
     <th class="col">Fullname</th>
-    <th class="col">Address</th>
+    <th class="col ">Address</th>
     <th class="text-center">Action</th>
     </tr>
     </thead>
@@ -34,9 +36,10 @@
        
   
         <form action="" method="POST">
-        <a href="edit.php?edit=<?php echo $row['id']; ?>" class="btn btn-sm btn-primary">Edit</a>
+        <button type="submit" name="edit" class="btn btn-sm btn-primary">Edit</button>
+        <input type="hidden" value="<?php echo $row['id']; ?>" name="id-edit" class="btn btn-sm btn-danger ">
         <button type="submit" name="delete" class="btn btn-sm btn-danger ">Delete</button>
-        <input type="hidden" value="<?php echo $row['id']; ?>" name="id" class="btn btn-sm btn-danger ">
+        <input type="hidden" value="<?php echo $row['id']; ?>" name="id-delete" class="btn btn-sm btn-danger ">
         </form>
       
         </td>
@@ -49,18 +52,23 @@
 
 <div class="p-5 bg-table">
     <form action="index.php" method='POST'>
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
     <div class="form-group">
     <label>Fullname</label>
-    <input type="text" name="name" placeholder="Fullname" class="form-control" required>
+    <input  type="text" name="name" placeholder="Fullname" class="form-control fullname" value="<?php echo $name;?>" >
     </div>
     <br>
     <div class="form-group">
     <label>Address</label>
-    <input type="text" name="address" placeholder="Address" class="form-control" required>
+    <input  type="text" name="address" placeholder="Address" class="form-control address" value="<?php echo $address;  ?>">
     </div>
     <br>
     <div class="form-group">
-    <button type="submit" name="btn-submit" class="form-control btn btn-md btn-dark">Submit</button>
+        <?php if($update == true): ?>
+    <button type="submit" name="btn-update" class="form-control btn btn-md btn-info update-btn">Update</button>
+    <?php else: ?>
+    <button type="submit" name="btn-submit" class="form-control btn btn-md btn-dark submit">Submit</button>
+    <?php endif; ?>
     </div>
     </form>
 </div>
